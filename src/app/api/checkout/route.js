@@ -11,7 +11,7 @@ const PRODUCT_NAME = 'Curso Premium'
 const PRODUCT_DESCRIPTION = 'Acceso completo al curso premium'
 const PRODUCT_AMOUNT = 2500
 
-async function getAuthenticatedUserId(request: Request) {
+async function getAuthenticatedUserId(request) {
   const authHeader = request.headers.get('authorization')
   const accessToken = authHeader?.startsWith('Bearer ')
     ? authHeader.slice('Bearer '.length)
@@ -35,7 +35,7 @@ async function getAuthenticatedUserId(request: Request) {
   return getOrCreateSupabaseUserId(session.user)
 }
 
-export async function POST(request: Request) {
+export async function POST(request) {
   try {
     const userId = await getAuthenticatedUserId(request)
 

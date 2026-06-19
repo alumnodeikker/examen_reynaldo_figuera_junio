@@ -4,7 +4,7 @@ import { supabaseAdmin } from '@/lib/supabase'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
-function formatCurrency(amountInCents: number) {
+function formatCurrency(amountInCents) {
   return new Intl.NumberFormat('es-ES', {
     style: 'currency',
     currency: 'EUR',

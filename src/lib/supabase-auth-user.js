@@ -1,11 +1,6 @@
 import { supabaseAdmin } from '@/lib/supabase'
 
-type SessionUser = {
-  email?: string | null
-  name?: string | null
-}
-
-export async function getOrCreateSupabaseUserId(user: SessionUser) {
+export async function getOrCreateSupabaseUserId(user) {
   if (!user.email) {
     return null
   }

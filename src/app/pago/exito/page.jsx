@@ -1,20 +1,14 @@
 import { supabaseAdmin } from '@/lib/supabase'
 import Link from 'next/link'
 
-type SuccessPageProps = {
-  searchParams: Promise<{
-    session_id?: string
-  }>
-}
-
-function formatCurrency(amountInCents: number) {
+function formatCurrency(amountInCents) {
   return new Intl.NumberFormat('es-ES', {
     style: 'currency',
     currency: 'EUR',
   }).format(amountInCents / 100)
 }
 
-export default async function ExitoPage({ searchParams }: SuccessPageProps) {
+export default async function ExitoPage({ searchParams }) {
   const { session_id: sessionId } = await searchParams
 
   if (!sessionId) {
